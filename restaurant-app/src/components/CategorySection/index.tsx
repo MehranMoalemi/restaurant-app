@@ -42,4 +42,4 @@ const CategoriesContainer = forwardRef<HTMLDivElement,Props>((props,ref): JSX.El
   );
 })
 
-export default CategoriesContainer;
+export default withScroll(CategoriesContainer);
