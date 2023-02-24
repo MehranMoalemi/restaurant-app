@@ -1,7 +1,7 @@
 import React, { forwardRef, ReactNode, useEffect, useState } from "react";
 import withScroll from "../../HOC/withScroll";
 import Card from "../Card";
-import ProductTypes from '../../Types';
+import {ProductTypes} from '../../Types';
 
 interface Props {
   forwardedRef: React.RefObject<HTMLDivElement>;
