@@ -1,6 +1,7 @@
 import React, { forwardRef, ReactNode, useEffect, useState } from "react";
 import withScroll from "../../HOC/withScroll";
 import Card from "../Card";
+import ProductTypes from '../../Types';
 
 interface Props {
   forwardedRef: React.RefObject<HTMLDivElement>;
@@ -33,7 +34,7 @@ const CategoriesContainer = forwardRef<HTMLDivElement,Props>((props,ref): JSX.El
 
   return (
     <div ref={forwardedRef}>
-      {meals?.products.map((product) => (
+      {meals?.products.map((product:ProductTypes) => (
         <Card title={product.title} image={product.image} key={product.id} />
       ))}
     </div>
