@@ -2,11 +2,12 @@ import React, { forwardRef, ReactNode, useEffect, useState } from "react";
 import withScroll from "../../HOC/withScroll";
 import Card from "../Card";
 import {ProductTypes} from '../../Types';
+import { IconType } from "react-icons";
 
 interface Props {
   forwardedRef: React.RefObject<HTMLDivElement>;
   title: 'pizza' | 'burger' | 'fruits';
-  Icon: ReactNode;
+  Icon: IconType;
 }
 
 const CategoriesContainer = forwardRef<HTMLDivElement,Props>((props,ref): JSX.Element => {
