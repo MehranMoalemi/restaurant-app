@@ -39,7 +39,7 @@ const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>(
       <h2>{title.toLocaleUpperCase()}</h2>
       <div className="products">
       {meals?.products.map((product:ProductTypes) => (
-        <Card title={product.title} image={product.image} key={product.id} />
+        <Card title={product.title} image={product.image} key={product.id} id={product.id} />
       ))}
       </div>
     </div>

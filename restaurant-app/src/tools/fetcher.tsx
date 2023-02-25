@@ -7,7 +7,7 @@ interface useFetchReturns<T>{
 
 function useFetch<T>(url: string): useFetchReturns<T> {
     const [data, setData] = useState<T|undefined>();
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState<any>(null);
   const getData = async () => {
     try {
       const response = await fetch(
