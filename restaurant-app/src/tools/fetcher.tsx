@@ -1,9 +1,12 @@
 import { useState } from "react";
 
+interface useFetchReturns{
+  data: any; error: any;
+}
 
-export const useFetch = async (url: string) => {
-    const [data, setData] = useState<any>();
-    const [error, setError] = useState<any>();
+async function useFetch<T>(url: string): useFetchReturns {
+    const [data, setData] = useState<T|undefined>();
+    const [error, setError] = useState<Error|null>(null);
     try {
       const response = await fetch(
         `${url}`
@@ -18,6 +21,9 @@ export const useFetch = async (url: string) => {
         setError(error)
     }
     return {
-        data,error,setData
+        data,error
     }
-  };
+};
+
+
+export default useFetch
