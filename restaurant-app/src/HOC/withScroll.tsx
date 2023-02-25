@@ -1,11 +1,12 @@
 import React, { forwardRef, useRef } from 'react'
+import { CategoriesContainerProps } from '../components/CategorySection';
 
 interface SectionProps {
   forwardRef: React.RefObject<HTMLDivElement>;
   
 }
 
-function withScroll<T extends SectionProps>(
+function withScroll<T extends SectionProps|CategoriesContainerProps>(
   WrappedComponent:React.ComponentType<T>
 ) {
   return function WrappedWithScroll(props: T) {

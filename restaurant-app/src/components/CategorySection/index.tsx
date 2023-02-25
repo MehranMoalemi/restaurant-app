@@ -4,13 +4,13 @@ import Card from "../Card";
 import {ProductTypes} from '../../Types';
 import { IconType } from "react-icons";
 
-interface Props {
+export interface CategoriesContainerProps {
   forwardedRef: React.RefObject<HTMLDivElement>;
   title: 'pizza' | 'burger' | 'fruits';
   Icon: IconType;
 }
 
-const CategoriesContainer = forwardRef<HTMLDivElement,Props>((props,ref): JSX.Element => {
+const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>((props,ref): JSX.Element => {
   const { title,forwardedRef,Icon } = props;
 
   const [meals, setMeals] = useState<any>();
