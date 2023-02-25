@@ -9,7 +9,7 @@ const Card = (props: Props) => {
   return (
       <div>
           <p>{title}</p>
-          <image href={image} />
+          <img src={image} />
     </div>
   )
 }
