@@ -1,0 +1,23 @@
+import React, { forwardRef, ForwardRefExoticComponent, RefAttributes, useRef } from 'react'
+import { CategoriesContainerProps } from '../components/CategorySection';
+
+interface SectionProps {
+  forwardRef: ForwardRefExoticComponent<CategoriesContainerProps & RefAttributes<HTMLDivElement>>;
+  onClick?: () => void;
+  
+}
+
+function withScroll<T extends SectionProps|CategoriesContainerProps>(
+  WrappedComponent:React.ForwardRefExoticComponent<CategoriesContainerProps & React.RefAttributes<HTMLDivElement> &SectionProps>
+) {
+  return function WrappedWithScroll(props: T) {
+    const ref = useRef<HTMLDivElement>(null);
+    const handleClick = () => {
+      if (ref.current) {
+        ref.current.scrollIntoView({behavior:'smooth'})
+      }
+    }
+    return <WrappedComponent {...props} forwardedRef={ref} onClick={handleClick} />
+  }
+}
+export default withScroll
