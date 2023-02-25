@@ -3,12 +3,17 @@
   flex-direction: column;
   border: 0.5px solid #006568cb;
   padding: 0.5em;
+  width: 100%;
+  border-radius: 1em;
+  margin: 1em 1em;
   p {
     color: rgba(0, 0, 0, 0.651);
+    text-align: center;
   }
 
   svg {
     font-size: 2em;
     color: #00656873;
+    align-self: center;
   }
 }
