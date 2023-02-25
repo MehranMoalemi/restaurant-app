@@ -8,7 +8,6 @@ export interface CategoriesContainerProps {
   forwardedRef: React.RefObject<HTMLDivElement>;
   title: 'pizza' | 'burger' | 'fruits';
   Icon: IconType;
-  onClick: () => void;
 }
 
 const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>((props,ref): JSX.Element => {
@@ -20,7 +19,7 @@ const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>(
     const fetchMeals = async () => {
       try {
         const response = await fetch(
-          `https://api.spoonacular.com/food/products/search?apiKey=5bbc5e9880df46538f5b3ba0f894a09d&query=${title}&number=10`
+          `https://api.spoonacular.com/food/products/search?apiKey=2f080c85405f41cead7163db31f89963&query=${title}&number=10`
         );
         const data = await response.json();
         setMeals(data);
@@ -35,7 +34,7 @@ const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>(
   }, []);
 
   return (
-    <div ref={ref} onClick={props.onClick} >
+    <div ref={forwardedRef} >
       {meals?.products.map((product:ProductTypes) => (
         <Card title={product.title} image={product.image} key={product.id} />
       ))}
@@ -43,4 +42,4 @@ const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>(
   );
 })
 
-export default withScroll(CategoriesContainer);
+export default CategoriesContainer;
