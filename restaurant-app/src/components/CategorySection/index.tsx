@@ -10,7 +10,7 @@ export interface CategoriesContainerProps {
   Icon: IconType;
 }
 
-const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>((props,ref): JSX.Element => {
+const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>((props): JSX.Element => {
   const { title,forwardedRef,Icon } = props;
 
   const [meals, setMeals] = useState<any>();
