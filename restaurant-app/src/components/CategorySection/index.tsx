@@ -34,7 +34,8 @@ const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>(
   }, []);
 
   return (
-    <div ref={forwardedRef} >
+    <div ref={forwardedRef} className={'category-container'}>
+      <h2>{title.toLocaleUpperCase()}</h2>
       {meals?.products.map((product:ProductTypes) => (
         <Card title={product.title} image={product.image} key={product.id} />
       ))}
