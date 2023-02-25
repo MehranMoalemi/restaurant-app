@@ -8,10 +8,11 @@ export interface CategoriesContainerProps {
   forwardedRef: React.RefObject<HTMLDivElement>;
   title: 'pizza' | 'burger' | 'fruits';
   Icon: IconType;
+  onClick: () => void;
 }
 
 const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>((props,ref): JSX.Element => {
-  const { title,Icon } = props;
+  const { title,forwardedRef,Icon } = props;
 
   const [meals, setMeals] = useState<any>();
 
@@ -34,7 +35,7 @@ const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>(
   }, []);
 
   return (
-    <div ref={ref}>
+    <div ref={ref} onClick={props.onClick} >
       {meals?.products.map((product:ProductTypes) => (
         <Card title={product.title} image={product.image} key={product.id} />
       ))}
