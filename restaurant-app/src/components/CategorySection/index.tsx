@@ -3,6 +3,7 @@ import withScroll from "../../HOC/withScroll";
 import Card from "../Card";
 import {ProductTypes} from '../../Types';
 import { IconType } from "react-icons";
+import './categorySection.scss';
 
 export interface CategoriesContainerProps {
   forwardedRef: React.RefObject<HTMLDivElement>;
@@ -19,7 +20,7 @@ const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>(
     const fetchMeals = async () => {
       try {
         const response = await fetch(
-          `https://api.spoonacular.com/food/products/search?apiKey=a30b98844ead43f4a801a1dee26d1e05&query=${title}&number=10`
+          `https://api.spoonacular.com/food/products/search?apiKey=59ca6668a54f400bb6cf3734f6c231ce&query=${title}&number=10`
         );
         const data = await response.json();
         setMeals(data);
@@ -36,9 +37,11 @@ const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>(
   return (
     <div ref={forwardedRef} className={'category-container'}>
       <h2>{title.toLocaleUpperCase()}</h2>
+      <div className="products">
       {meals?.products.map((product:ProductTypes) => (
         <Card title={product.title} image={product.image} key={product.id} />
       ))}
+      </div>
     </div>
   );
 })
