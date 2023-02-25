@@ -15,7 +15,7 @@ function withScroll<T extends SectionProps|CategoriesContainerProps>(
         ref.current.scrollIntoView({behavior:'smooth'})
       }
     }
-    return <WrappedComponent {...props} forwardRef={ref} onClick={handleClick} />
+    return <WrappedComponent {...props}  />
   }
 }
 // Type 'T & { forwardRef: RefObject<HTMLDivElement>; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & T'.
