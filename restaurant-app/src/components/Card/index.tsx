@@ -7,7 +7,7 @@ interface Props{
   id: number;
 }
 const Card = (props: Props):JSX.Element => {
-  const { title, image } = props;
+  const { title, image,id } = props;
   const url = `https://api.spoonacular.com/food/products/${id}?apiKey=9b42d03f21504bd29ac8ffa205dfd2e4`;
 
   const { data } = useFetch(url);
