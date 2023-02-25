@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { FaPizzaSlice } from 'react-icons/fa';
 import { FaHamburger } from 'react-icons/fa';
 import { FaAppleAlt } from 'react-icons/fa';
@@ -18,7 +18,7 @@ function App() {
   };
   return (
     <div>
-      <div className='categories-container'>
+      <div className='selectors-container'>
         <CategorySelector onClick={()=>handleClick(pizzaRef)} Icon={FaPizzaSlice} title={'pizza'} />
         <CategorySelector onClick={()=>handleClick(burgerRef)} Icon={FaHamburger} title={'burger'} />
         <CategorySelector onClick={()=>handleClick(fruitRef)} Icon={FaAppleAlt} title={'fruit'} />
