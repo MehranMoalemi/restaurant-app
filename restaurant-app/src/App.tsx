@@ -5,11 +5,12 @@ import { FaAppleAlt } from 'react-icons/fa';
 import CategorySelector from './components/CategorySelector';
 import { RefObject, useRef } from 'react';
 import CategoriesContainer from './components/CategorySection';
+
 function App() {
   const pizzaRef = useRef<HTMLDivElement>(null)
   const burgerRef = useRef<HTMLDivElement>(null)
   const fruitRef = useRef<HTMLDivElement>(null)
-  
+
   const handleClick = (ref: RefObject<HTMLDivElement>) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
