@@ -20,7 +20,7 @@ const CategoriesContainer =React.memo(forwardRef<HTMLDivElement,CategoriesContai
     const fetchMeals = async () => {
       try {
         const response = await fetch(
-          `https://api.spoonacular.com/food/products/search?apiKey=1350cee7422a44c8b36190718187e824&query=${title}&number=10`
+          `https://api.spoonacular.com/food/products/search?apiKey=4d2d56d46fd04421a0c74f139efc10b2&query=${title}&number=10`
         );
         const data = await response.json();
         setMeals(data);
@@ -35,7 +35,7 @@ const CategoriesContainer =React.memo(forwardRef<HTMLDivElement,CategoriesContai
   }, []);
 
   return (
-    <div ref={forwardedRef} className={'category-container'}>
+    <div ref={ref} className={'category-container'}>
       <h2>{title.toLocaleUpperCase()}</h2>
       <div className="products">
       {meals?.products.map((product:ProductTypes) => (
