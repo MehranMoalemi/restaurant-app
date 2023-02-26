@@ -11,7 +11,7 @@ export interface CategoriesContainerProps {
   Icon: IconType;
 }
 
-const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>((props): JSX.Element => {
+const CategoriesContainer =React.memo(forwardRef<HTMLDivElement,CategoriesContainerProps>((props): JSX.Element => {
   const { title,forwardedRef,Icon } = props;
 
   const [meals, setMeals] = useState<any>();
@@ -44,6 +44,6 @@ const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>(
       </div>
     </div>
   );
-})
+}))
 
 export default CategoriesContainer;
