@@ -11,7 +11,7 @@ interface Props{
 }
 
 function useFetch<T>(props: Props): useFetchReturns<T> {
-  const { url, dependencies=[] } = props;
+  const { url, dependencies=[]} = props;
 
   const [data, setData] = useState<T | undefined>();
   const [error, setError] = useState<any>(null);
