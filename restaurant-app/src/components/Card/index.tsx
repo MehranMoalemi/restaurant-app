@@ -6,7 +6,7 @@ interface Props {
   image: string;
   id: number;
 }
-const Card = (props: Props): JSX.Element => {
+const Card = React.memo((props: Props): JSX.Element => {
   const { title, image, id } = props;
   
   // expandable card onClick
@@ -27,8 +27,13 @@ const Card = (props: Props): JSX.Element => {
     <div className={'product-card'} onClick={handleClick}>
       <p>{title}</p>
       <img src={image} />
+
+      {isExpanded &&
+        <div>
+          test
+      </div> }
     </div>
   )
-}
+})
 
 export default Card
