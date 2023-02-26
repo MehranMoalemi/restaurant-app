@@ -17,21 +17,18 @@ const Card = React.memo((props: Props): JSX.Element => {
 
   // fetching more info about the product to show onClick
   // useFetch hook For fething the data
-  const url = `https://api.spoonacular.com/food/products/${id}?apiKey=4d2d56d46fd04421a0c74f139efc10b2`;
-  const { data:moreInfo } = useFetch({ url, dependencies: [isExpanded] });
+  const url = `https://api.spoonacular.com/food/products/${id}?apiKey=f396c52f152f441fb36189fdd82434d6`;
+  const { data: moreInfo } = useFetch({ url, dependencies: [isExpanded, url] });
 
 
   return (
     <div className={'product-card'} onClick={handleClick}>
       <p>{title}</p>
       <img src={image} />
-
       {isExpanded &&
-        moreInfo.nutrition.nutrients.map((nutrient:any, index:number) => (
+          moreInfo?.breadcrumbs?.map((breadcrumb: any, index: number) => (
           <div key={index}>
-            <span>amount: {nutrient.amount}</span>
-            <span>name: {nutrient.name}</span>
-            <span>percentOfDailyNeeds: {nutrient.percentOfDailyNeeds}</span>
+            {breadcrumb}
           </div>
         ))
       }

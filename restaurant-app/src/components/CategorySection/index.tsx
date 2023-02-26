@@ -20,7 +20,7 @@ const CategoriesContainer =React.memo(forwardRef<HTMLDivElement,CategoriesContai
     const fetchMeals = async () => {
       try {
         const response = await fetch(
-          `https://api.spoonacular.com/food/products/search?apiKey=4d2d56d46fd04421a0c74f139efc10b2&query=${title}&number=10`
+          `https://api.spoonacular.com/food/products/search?apiKey=f396c52f152f441fb36189fdd82434d6&query=${title}&number=10`
         );
         const data = await response.json();
         setMeals(data);
