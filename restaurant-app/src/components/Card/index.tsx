@@ -18,10 +18,10 @@ const Card = (props: Props): JSX.Element => {
   // fetching more info about the product to show onClick
   // useFetch hook For fething the data
       const url = `https://api.spoonacular.com/food/products/${id}?apiKey=482f52273f3744a18f0355fabf33f759`;
-      const { data } = useFetch(url,isExpanded);
+      const { data } = useFetch({url,dependencies:[isExpanded]});
   
 
-  console.log(moreInfo, 'moreInfo');
+  console.log(data, 'moreInfo');
 
 
   return (
