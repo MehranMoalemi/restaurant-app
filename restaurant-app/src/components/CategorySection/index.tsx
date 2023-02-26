@@ -1,5 +1,4 @@
-import React, { forwardRef, ReactNode, RefAttributes, useEffect, useState } from "react";
-import withScroll from "../../HOC/withScroll";
+import React, { forwardRef} from "react";
 import Card from "../Card";
 import {ProductTypes} from '../../Types';
 import { IconType } from "react-icons";
@@ -14,26 +13,6 @@ export interface CategoriesContainerProps {
 
 const CategoriesContainer =React.memo(forwardRef<HTMLDivElement,CategoriesContainerProps>((props,ref): JSX.Element => {
   const { title,forwardedRef,Icon } = props;
-
-  // const [meals, setMeals] = useState<any>();
-
-  // useEffect(() => {
-  //   const fetchMeals = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `https://api.spoonacular.com/food/products/search?apiKey=f396c52f152f441fb36189fdd82434d6&query=${title}&number=10`
-  //       );
-  //       const data = await response.json();
-  //       setMeals(data);
-  //       if (data) {
-  //         console.log(meals);
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   fetchMeals();
-  // }, []);
 
     // fetching more info about the product to show onClick
   // useFetch hook For fething the data

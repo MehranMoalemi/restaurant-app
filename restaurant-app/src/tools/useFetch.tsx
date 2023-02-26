@@ -24,9 +24,6 @@ function useFetch<T>(props: Props): useFetchReturns<T> {
         );
         const data = await response.json();
         setData(data);
-        if (data) {
-          console.log(data);
-        }
       } catch (error) {
         console.log(error);
         setError(error)

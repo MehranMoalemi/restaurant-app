@@ -1,6 +1,7 @@
-import React, { ReactNode } from 'react'
+import React from 'react';
 import { IconType } from 'react-icons/lib';
 import './categorySelector.scss'
+
 interface Props{
   title: string;
   Icon: IconType;
