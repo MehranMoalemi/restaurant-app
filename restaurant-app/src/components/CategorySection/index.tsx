@@ -16,7 +16,7 @@ const CategoriesContainer =React.memo(forwardRef<HTMLDivElement,CategoriesContai
 
     // fetching more info about the product to show onClick
   // useFetch hook For fething the data
-  const url = `https://api.spoonacular.com/food/products/search?apiKey=d242d4b5569d46bebd760f88c729d9a0&query=${title}&number=5`;
+  const url = `https://api.spoonacular.com/food/products/search?apiKey=467001732e5045e8b7393653cfae3de4&query=${title}&number=5`;
   const { data: meals } = useFetch({ url, dependencies: [] });
 
   return (
