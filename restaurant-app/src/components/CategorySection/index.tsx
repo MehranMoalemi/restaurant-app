@@ -35,7 +35,7 @@ const CategoriesContainer =React.memo(forwardRef<HTMLDivElement,CategoriesContai
   }, []);
 
   return (
-    <div ref={ref} className={'category-container'}>
+    <div ref={forwardedRef} className={'category-container'}>
       <h2>{title.toLocaleUpperCase()}</h2>
       <div className="products">
       {meals?.products.map((product:ProductTypes) => (
