@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import useFetch from '../../tools/fetcher';
+import useFetch from '../../tools/useFetch';
 import './card.scss';
 interface Props {
   title: string;
@@ -27,7 +27,7 @@ const Card = (props: Props): JSX.Element => {
   }, [isExpanded])
   
 
-  console.log(data, 'data');
+  console.log(moreInfo, 'moreInfo');
 
 
   return (
