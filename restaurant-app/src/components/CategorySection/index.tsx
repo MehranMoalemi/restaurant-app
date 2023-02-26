@@ -20,7 +20,7 @@ const CategoriesContainer = forwardRef<HTMLDivElement,CategoriesContainerProps>(
     const fetchMeals = async () => {
       try {
         const response = await fetch(
-          `https://api.spoonacular.com/food/products/search?apiKey=482f52273f3744a18f0355fabf33f759&query=${title}&number=10`
+          `https://api.spoonacular.com/food/products/search?apiKey=7bf8049ff8ab464e9f5d8e0435399458&query=${title}&number=10`
         );
         const data = await response.json();
         setMeals(data);
