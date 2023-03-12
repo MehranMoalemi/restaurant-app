@@ -19,7 +19,7 @@ const Card = React.memo((props: Props): JSX.Element => {
   // fetching more info about the product to show onClick
   // useFetchAfterMount hook For fething the data only with dependency changes not first render 
   //  **to decrease the number of requests**
-  const url = `https://api.spoonacular.com/food/products/${id}?apiKey=68715b43d06d48c8929e67f6d5703d2c`;
+  const url = `https://api.spoonacular.com/food/products/${id}?apiKey=0613433eacff48d7ae40547bfbb1d262`;
   const { data: moreInfo } = useFetchAfterMount({ url, dependencies: [isExpanded] });
 
 

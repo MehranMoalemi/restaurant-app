@@ -15,8 +15,7 @@ type Cache<T> = { [url: string]: T }
 
 function useFetchAfterMount<T>(props: Props): State<T> {
   const { url, dependencies = [] } = props;
-  console.log("called")
-
+  
   const [data, setData] = useState<T | undefined>();
   const [error, setError] = useState<any>(null);
   // Used to prevent state update if the component is unmounted
@@ -28,21 +27,22 @@ function useFetchAfterMount<T>(props: Props): State<T> {
     if (!url) return
 
     cancelRequest.current = false
-
+    
     const getData = async () => {
-
+      
       if (cache.current[url]) {
         setData(cache.current[url]);
         return
       }
-
+      
+      console.log("afterMount called")
       try {
         const response = await fetch(
           `${url}`
-        );
-        if (!response.ok) {
-          throw new Error(response.statusText)
-        }
+          );
+          if (!response.ok) {
+            throw new Error(response.statusText)
+          }
         const data = await response.json();
         if (cancelRequest.current) return
         setData(data);
