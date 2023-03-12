@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import useFetch from '../../tools/useFetch';
+import useFetch from '../../Hooks/useFetch';
 import './card.scss';
 interface Props {
   title: string;

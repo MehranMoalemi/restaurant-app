@@ -3,7 +3,7 @@ import Card from "../Card";
 import {ProductTypes} from '../../Types';
 import { IconType } from "react-icons";
 import './categorySection.scss';
-import useFetch from "../../tools/useFetch";
+import useFetch from "../../Hooks/useFetch";
 
 export interface CategoriesContainerProps {
   forwardedRef: React.RefObject<HTMLDivElement>;
