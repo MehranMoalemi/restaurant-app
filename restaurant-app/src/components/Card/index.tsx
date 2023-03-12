@@ -18,7 +18,7 @@ const Card = React.memo((props: Props): JSX.Element => {
   // fetching more info about the product to show onClick
   // useFetch hook For fething the data
   const url = `https://api.spoonacular.com/food/products/${id}?apiKey=311a0dd569df476588d5f886de810697`;
-  const { data: moreInfo } = useFetch({ url, dependencies: [isExpanded] });
+  const { data: moreInfo } = useFetch({ url, dependencies: [isExpanded],fetchOnFirstRender:false });
 
 
   return (
