@@ -9,16 +9,18 @@ interface useFetchReturns<T> {
 interface Props {
   url: string;
   dependencies: any[];
+  fetchOnFirstRender: boolean;
 }
 
-function useFetch<T>(props: Props): useFetchReturns<T> {
-  const { url, dependencies = [] } = props;
+function useFetchAfterMount<T>(props: Props): useFetchReturns<T> {
+  const { url, dependencies = [], fetchOnFirstRender } = props;
   console.log("called")
 
   const [data, setData] = useState<T | undefined>();
   const [error, setError] = useState<any>(null);
-    useEffect(() => {
-
+  
+    //this hook will ignore first render and doesnt fetch the data
+    useEffectAfterMount(() => {
       const getData = async () => {
         try {
           const response = await fetch(
@@ -33,9 +35,7 @@ function useFetch<T>(props: Props): useFetchReturns<T> {
       }
 
       url && getData();
-
     }, dependencies)
- 
 
   return {
     data, error
@@ -43,4 +43,4 @@ function useFetch<T>(props: Props): useFetchReturns<T> {
 };
 
 
-export default useFetch
+export default useFetchAfterMount
