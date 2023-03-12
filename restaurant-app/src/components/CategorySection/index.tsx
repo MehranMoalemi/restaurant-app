@@ -15,8 +15,8 @@ const CategoriesContainer =React.memo(forwardRef<HTMLDivElement,CategoriesContai
   const { title,forwardedRef,Icon } = props;
 
   // useFetch hook For fething the data
-  const url = `https://api.spoonacular.com/food/products/search?apiKey=467001732e5045e8b7393653cfae3de4&query=${title}&number=5`;
-  const { data: meals } = useFetch({ url, dependencies: [] });
+  const url = `https://api.spoonacular.com/food/products/search?apiKey=311a0dd569df476588d5f886de810697&query=${title}&number=5`;
+  const { data: meals } = useFetch({ url, dependencies: [title] });
 
   return (
     <div ref={forwardedRef} className={'category-container'}>
