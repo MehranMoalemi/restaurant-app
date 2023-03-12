@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import useFetch from '../../Hooks/useFetch';
+import useFetchAfterMount from '../../Hooks/useFetchAfterMount';
 import './card.scss';
 interface Props {
   title: string;
@@ -18,7 +19,7 @@ const Card = React.memo((props: Props): JSX.Element => {
   // fetching more info about the product to show onClick
   // useFetch hook For fething the data
   const url = `https://api.spoonacular.com/food/products/${id}?apiKey=311a0dd569df476588d5f886de810697`;
-  const { data: moreInfo } = useFetch({ url, dependencies: [isExpanded] });
+  const { data: moreInfo } = useFetchAfterMount({ url, dependencies: [isExpanded] });
 
 
   return (

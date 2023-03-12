@@ -9,11 +9,10 @@ interface useFetchReturns<T> {
 interface Props {
   url: string;
   dependencies: any[];
-  fetchOnFirstRender: boolean;
 }
 
 function useFetchAfterMount<T>(props: Props): useFetchReturns<T> {
-  const { url, dependencies = [], fetchOnFirstRender } = props;
+  const { url, dependencies = [] } = props;
   console.log("called")
 
   const [data, setData] = useState<T | undefined>();

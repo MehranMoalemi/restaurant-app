@@ -3,7 +3,7 @@ import Card from "../Card";
 import {ProductTypes} from '../../Types';
 import { IconType } from "react-icons";
 import './categorySection.scss';
-import useFetchAfterMount from "../../Hooks/useFetchAfterMount";
+import useFetch from "../../Hooks/useFetch";
 
 export interface CategoriesContainerProps {
   forwardedRef: React.RefObject<HTMLDivElement>;
@@ -16,7 +16,7 @@ const CategoriesContainer =React.memo(forwardRef<HTMLDivElement,CategoriesContai
 
   // useFetch hook For fething the data
   const url = `https://api.spoonacular.com/food/products/search?apiKey=311a0dd569df476588d5f886de810697&query=${title}&number=5`;
-  const { data: meals } = useFetchAfterMount({ url, dependencies: [title],fetchOnFirstRender:true });
+  const { data: meals } = useFetch({ url, dependencies: [title] });
 
   return (
     <div ref={forwardedRef} className={'category-container'}>
