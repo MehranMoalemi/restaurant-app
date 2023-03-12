@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import useEffectAfterMount from "./useEffectAfterMount";
 
-interface useFetchReturns<T> {
+interface State<T> {
   data: T | any;
   error: Error | null;
 }
@@ -11,30 +11,50 @@ interface Props {
   dependencies: any[];
 }
 
-function useFetchAfterMount<T>(props: Props): useFetchReturns<T> {
+type Cache<T> = { [url: string]: T }
+
+function useFetchAfterMount<T>(props: Props): State<T> {
   const { url, dependencies = [] } = props;
   console.log("called")
 
   const [data, setData] = useState<T | undefined>();
   const [error, setError] = useState<any>(null);
-  
-    //this hook will ignore first render and doesnt fetch the data
-    useEffectAfterMount(() => {
-      const getData = async () => {
-        try {
-          const response = await fetch(
-            `${url}`
-          );
-          const data = await response.json();
-          setData(data);
-        } catch (error) {
-          console.log(error);
-          setError(error)
-        }
+  // Used to prevent state update if the component is unmounted
+  const cancelRequest = useRef<boolean>(false)
+  const cache = useRef<Cache<T>>({})
+
+  //this hook will ignore first render and doesnt fetch the data
+  useEffectAfterMount(() => {
+    if (!url) return
+
+    cancelRequest.current = false
+
+    const getData = async () => {
+
+      if (cache.current[url]) {
+        setData(cache.current[url]);
+        return
       }
 
-      url && getData();
-    }, dependencies)
+      try {
+        const response = await fetch(
+          `${url}`
+        );
+        if (!response.ok) {
+          throw new Error(response.statusText)
+        }
+        const data = await response.json();
+        if (cancelRequest.current) return
+        setData(data);
+      } catch (error) {
+        if (cancelRequest.current) return
+        console.log(error);
+        setError(error)
+      }
+    }
+
+    url && getData();
+  }, dependencies)
 
   return {
     data, error
